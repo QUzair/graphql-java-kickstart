@@ -1,0 +1,5 @@
+type Mutation {
+    # All Mutations available
+    createBankAccount(input: CreateBankAccountInput!): BankAccount
+    uploadFile: BankAccount
+}
