@@ -3,11 +3,9 @@ spring:
     name: iqra3
   codec:
     max-in-memory-size: 20MB
-
 #server:
 #  http2:
 #    enabled: true
-
 graphql:
   servlet:
     # Sets if GraphQL servlet should be created and exposed. If not specified defaults to "true".
@@ -15,6 +13,7 @@ graphql:
     # Sets the path where GraphQL servlet will be exposed. If not specified defaults to "/graphql"
     mapping: /graphql
     cors-enabled: true
+    tracing-enabled: false
     cors:
       allowed-origins: http://some.domain.com
       allowed-methods: GET, HEAD, POST
@@ -24,5 +23,17 @@ graphql:
     # Sets if asynchronous operations are supported for GraphQL requests. If not specified defaults to true.
   playground:
     enabled: true
-  voyager:
-    enabled: true
+    settings:
+      schema:
+        polling:
+          enable: false
+    mapping: /playground
+
+voyager:
+  enabled: true
+
+logging:
+  pattern:
+    console: -%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %clr(%X{correlation_id}){red} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}
+server:
+  port: 8080

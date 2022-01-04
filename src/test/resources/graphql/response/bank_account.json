@@ -1,0 +1,15 @@
+{
+  "data": {
+    "bankAccount": {
+      "id": "675b1995-0d90-4ba9-85db-b8de4ed66ab9",
+      "client": {
+        "firstName": "Uzair",
+        "lastName": "Qureshi"
+      },
+      "createdOn": "2020-10-17",
+      "createdAt": "2020-10-17T00:00:00Z",
+      "currency": "USD",
+      "balance": null
+    }
+  }
+}

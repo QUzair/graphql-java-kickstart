@@ -1,5 +1,13 @@
 type Mutation {
     # All Mutations available
-    createBankAccount(input: CreateBankAccountInput!): BankAccount
+    createBankAccount(input: BankAccountInput!): BankAccount
+
+    # Update a Bank Account
+    updateBankAccount(id: ID, name: String! @NotBlank(message: "updateBankAccount.name"), age: Int @Expression(value: "${validatedValue < 500}" message: "updateBankAccount.age")): BankAccount!
+
     uploadFile: BankAccount
 }
+
+scalar NonNegativeInt
+scalar DateTime
+scalar Date
